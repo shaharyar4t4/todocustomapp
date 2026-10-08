@@ -4,12 +4,13 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import LoginScreen from './src/features/auth/screen/LoginScreen';
 
 function App() {
 
   return (
     <SafeAreaProvider>
-      
+      <LoginScreen/>
     </SafeAreaProvider> 
   );
 }

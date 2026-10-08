@@ -1,32 +1,48 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, } from 'react-native';
+import {
+    ActivityIndicator,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    TouchableOpacityProps,
+} from 'react-native';
+import { Color } from '../../color/AppColor';
+import SemiboldFontStyle from '../fontStyle/SemiboldFontStyle';
 
-interface ButtonProps {
+interface AppButtonProps extends TouchableOpacityProps {
     title: string;
-    onPress: () => void;
     loading?: boolean;
-    disabled?: boolean;
 }
 
-const Button = ({ title, onPress, loading = false, disabled = false }: ButtonProps) => {
+const AppButton = ({
+    title,
+    loading = false,
+    disabled = false,
+    style,
+    ...rest
+}: AppButtonProps) => {
+    const isDisabled = disabled || loading;
+
     return (
         <TouchableOpacity
-            style={styles.btn}
-            onPress={onPress}
-            disabled={disabled || loading}
+            style={[styles.button, style]}
+            disabled={isDisabled}
+            accessibilityRole="button"
+            accessibilityState={{ disabled: isDisabled, busy: loading }}
+            {...rest}
         >
             {loading ? (
-                <ActivityIndicator color='#fff' />
+                <ActivityIndicator color={Color.background} />
             ) : (
-                <Text style={styles.txt}>{title}</Text>
+                <Text style={styles.title}>{title}</Text>
             )}
         </TouchableOpacity>
     );
 };
 
 const styles = StyleSheet.create({
-    btn: {
-        backgroundColor: '#4F46E5',
+    button: {
+        backgroundColor: Color.primary,
         paddingVertical: 14,
         paddingHorizontal: 20,
         borderRadius: 8,
@@ -34,11 +50,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    txt: {
-        color: '#fff',
+    title: {
+        ...SemiboldFontStyle,
+        color: Color.background,
         fontSize: 16,
-        fontWeight: '600',
     },
 });
 
-export default Button;
+export type { AppButtonProps };
+export { AppButton };
+export default AppButton;
