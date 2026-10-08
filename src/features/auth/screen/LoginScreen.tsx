@@ -4,6 +4,7 @@ import { Color } from '../../../core/color/AppColor';
 import AppScreenPadding from '../../../core/components/padding/AppScreenPadding';
 import SemiboldFontStyle from '../../../core/components/fontStyle/SemiboldFontStyle';
 import { Strings } from '../../../core/constant/AppString';
+import Input from '../../../core/components/textfield/AppTextField';
 
 const LoginScreen = () => {
     return (
@@ -11,6 +12,13 @@ const LoginScreen = () => {
             <View style={styles.miniContainer}>
                 <Text style={styles.heading}>{Strings.login.logintxt}</Text>
             </View>
+            <Input
+             label={Strings.login.loginEmailLabel}
+
+             placeholder = {Strings.login.loginEmailReq}
+             error = {Strings.login.loginEmailError}
+             
+            />
         </AppScreenPadding>
     );
 };
