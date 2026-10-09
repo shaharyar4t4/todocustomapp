@@ -4,7 +4,7 @@ import { Color } from '../../../core/color/AppColor';
 import AppScreenPadding from '../../../core/components/padding/AppScreenPadding';
 import SemiboldFontStyle from '../../../core/components/fontStyle/SemiboldFontStyle';
 import { Strings } from '../../../core/constant/AppString';
-import Input from '../../../core/components/textfield/AppTextField';
+import LoginForm from '../components/LoginForm';
 
 const LoginScreen = () => {
     return (
@@ -12,13 +12,7 @@ const LoginScreen = () => {
             <View style={styles.miniContainer}>
                 <Text style={styles.heading}>{Strings.login.logintxt}</Text>
             </View>
-            <Input
-             label={Strings.login.loginEmailLabel}
-
-             placeholder = {Strings.login.loginEmailReq}
-             error = {Strings.login.loginEmailError}
-             
-            />
+            <LoginForm />
         </AppScreenPadding>
     );
 };
@@ -26,7 +20,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
     miniContainer: {
         backgroundColor: Color.primary,
-        flex: .2,
+        flex: .3,
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center'
@@ -34,7 +28,7 @@ const styles = StyleSheet.create({
     heading: {
         ...SemiboldFontStyle,
         color: 'white',
-        fontSize: 16,
+        fontSize: 20,
 
     },
 });

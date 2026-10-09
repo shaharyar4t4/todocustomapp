@@ -6,7 +6,9 @@ export const Strings = {
         loginEmailLabel: 'Email',
         loginPasswordLabel: 'Password',
         loginEmailError: 'Please add the correct Email',
-        loginEmailReq: 'Email is Requried',
-        LoginPasswordReq: 'Password is Requried',
+        loginPasswordError: 'Please add the correct Password',
+        loginEmailReq: 'Email is required',
+        loginPasswordReq: 'Password is required',
+        loginButton: 'Login',
     }
 }
