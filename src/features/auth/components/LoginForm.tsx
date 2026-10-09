@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 24,
         gap: 16,
+        alignContent: 'center'
     },
 });
 
